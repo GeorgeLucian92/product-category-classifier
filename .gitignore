@@ -1,18 +1,8 @@
-# Python
 __pycache__/
 *.pyc
-*.pyo
-
-# Virtual env
-.venv/
-
-# Jupyter
 .ipynb_checkpoints/
-
-# OS
+.venv/
+.vscode/
+.idea/
 .DS_Store
 Thumbs.db
-
-# Reports/outputs (păstrăm modelul în repo, deci NU ignorăm models/)
-reports/*.png
-reports/*.json
