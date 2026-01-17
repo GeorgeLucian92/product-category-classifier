@@ -14,7 +14,7 @@ from src.utils import DATA_PATH, MODEL_PATH
 
 @dataclass
 class TrainConfig:
-    test_size: float = 0.25
+    test_size: float = 0.2
     random_state: int = 42
 
 
@@ -41,7 +41,7 @@ def build_pipeline() -> Pipeline:
     return Pipeline(
         steps=[
             ("tfidf", TfidfVectorizer(ngram_range=(1, 2), min_df=1)),
-            ("clf", LogisticRegression(max_iter=2000)),
+            ("clf", LogisticRegression(max_iter=3000, class_weight="balanced")),
         ]
     )
 
@@ -68,7 +68,7 @@ def main() -> int:
     print(f"Accuracy: {acc:.4f}")
     print(f"Macro F1 : {f1:.4f}")
     print("\nClassification report:\n")
-    print(classification_report(y_test, preds))
+    print(classification_report(y_test, preds, zero_division=0))
 
     MODEL_PATH.parent.mkdir(parents=True, exist_ok=True)
     joblib.dump(model, MODEL_PATH)
