@@ -67,6 +67,7 @@ python -m src.predict "men cotton hoodie black"
 python -m src.predict "car phone holder dashboard"
 ```
 
-✅ Notes
+## ✅ Notes
+
 The included dataset is intentionally small (demo). For higher accuracy, add more labeled product titles to:
 data/raw/products.csv.
